@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+float angka1, angka2;
+
+void inputBilangan() {
+    printf("Masukkan bilangan pertama : ");
+    scanf("%f", &angka1);
+    printf("Masukkan bilangan kedua   : ");
+    scanf("%f", &angka2);
+}
+
+void tambah() {
+    printf("Hasil: %.2f + %.2f = %.2f\n", angka1, angka2, angka1 + angka2);
+}
+
+void kurang() {
+    printf("Hasil: %.2f - %.2f = %.2f\n", angka1, angka2, angka1 - angka2);
+}
+
+void kali() {
+    printf("Hasil: %.2f x %.2f = %.2f\n", angka1, angka2, angka1 * angka2);
+}
+
+void bagi() {
+    if (angka2 == 0) {
+        printf("Error: tidak bisa dibagi 0\n");
+    } else {
+        printf("Hasil: %.2f / %.2f = %.2f\n", angka1, angka2, angka1 / angka2);
+    }
+}
+
+int main() {
+    char operasi, jawab;
+
+    do {
+        printf("\n=== KALKULATOR ===\n");
+        inputBilangan();
+
+        printf("Pilih operasi (+  -  x  /) : ");
+        scanf(" %c", &operasi);
+
+        if (operasi == '+') {
+            tambah();
+        } else if (operasi == '-') {
+            kurang();
+        } else if (operasi == 'x') {
+            kali();
+        } else if (operasi == '/') {
+            bagi();
+        } else {
+            printf("Operasi tidak dikenal\n");
+        }
+
+        printf("Hitung lagi? (y/n): ");
+        scanf(" %c", &jawab);
+
+    } while (jawab == 'y' || jawab == 'Y');
+
+    printf("Program selesai. Terima kasih!\n");
+    return 0;
+}
